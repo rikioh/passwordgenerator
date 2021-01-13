@@ -1,6 +1,5 @@
 // Button for the function
-var randomizeE1 = document.querySelector("#randomize");
-var randomizeE2 = document.querySelector("#prompt");
+var randomizeE1 = document.querySelector("#prompt");
 
 // random string variable for the password
 var randomString = "";
@@ -14,7 +13,7 @@ var specCharacters = Array.from('!"#$%&()*+,-./:;<=>?@[]^_`{|}~')
 // create an array for numbers
 var numCharacters = Array.from('1234567890')
 
-randomizeE2.addEventListener ("click", function selectCriteria() {
+randomizeE1.addEventListener ("click", function selectCriteria() {
 
 // create a prompt for password length (8-128)
 var passLength = prompt("Please enter a passcode length (between 8-128)")
@@ -22,9 +21,6 @@ var passLength = prompt("Please enter a passcode length (between 8-128)")
 while(isNaN(passLength) || passLength < 8 || passLength > 128){
     var passLength = prompt("Please enter a passcode length (between 8-128)")
 }
-
-var numpassLength = parseInt(passLength,10)
-console.log(numpassLength)
 
 // create a prompt for password criteria general
 var passlowCriteria = confirm("Select confirm if you wish to include lowercase letters in your passcode")
@@ -40,8 +36,12 @@ while (passlowCriteria!==true && passupCriteria!==true && passnumCriteria!==true
     var passnumCriteria = confirm("Select confirm if you wish to include numbers in your passcode")
     var passspecCriteria = confirm("Select confirm if you wish to include special characters in your passcode")
 }
-// create a confirm for selection validation
-var passConfirm = confirm("Please confirm your passcode criteria which you selected")
+// // create a confirm for selection validation ***************IS THIS NEEDED**********
+// var passConfirm = confirm("Please confirm your passcode criteria which you selected")
+
+// if (passConfirm!==true){
+//     alert("Please select your criteria again")
+// }
 
 if (passlowCriteria!==false && passupCriteria!==true && passnumCriteria!==true && passspecCriteria!==true){
     // create lowercase only criteria
@@ -110,7 +110,7 @@ for(var i=0;i<passLength;i++){
     randomString+=arrayCombo[random].toString()
 }
 console.log(randomString)
-
+myform.row_password.value = randomString;
 }
 )
 
