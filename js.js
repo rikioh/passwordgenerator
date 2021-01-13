@@ -14,6 +14,8 @@ var specCharacters = Array.from('!"#$%&()*+,-./:;<=>?@[]^_`{|}~')
 // create an array for numbers
 var numCharacters = Array.from('1234567890')
 
+randomizeE2.addEventListener ("click", function selectCriteria() {
+
 // create a prompt for password length (8-128)
 var passLength = prompt("Please enter a passcode length (between 8-128)")
 // validate that the item entered is numerical
@@ -98,13 +100,31 @@ else if (passlowCriteria!==false && passupCriteria!==false && passnumCriteria!==
     // create lowercase and uppercase and num and special criteria
     var arrayCombo = lowCharacters.concat(upCharacters, numCharacters, specCharacters)
 }
-
 console.log(arrayCombo)
 
-function randomize(){
+for(var i=0;i<passLength;i++){
     var random = Math.floor(Math.random() * arrayCombo.length)
-        return randomString+=arrayCombo[random].toString()
+    randomString+=arrayCombo[random].toString()
 }
+console.log(randomString)
+
+}
+)
+
+
+// function randomize(){
+//     var random = Math.floor(Math.random() * arrayCombo.length)
+//         return randomString+=arrayCombo[random].toString()
+// }
+
+// randomizeE1.addEventListener ("click", function createPassword() {
+//         for(var i=0;i<passLength;i++){
+//             randomize()
+//         }
+//         console.log(randomString)
+//     }
+// )
+
 
 // backup code
 // function randomize(){
@@ -125,12 +145,3 @@ function randomize(){
 //        return randomString+=specCharacters[random].toString()
 //     }
 // }
-
-randomizeE1.addEventListener ("click", function createPassword() {
-        for(var i=0;i<passLength;i++){
-            randomize()
-        }
-        console.log(randomString)
-    }
-)
-
