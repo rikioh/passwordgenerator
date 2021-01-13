@@ -45,16 +45,19 @@ var passConfirm = confirm("Please confirm your passcode criteria which you selec
 
 if (passlowCriteria!==false && passupCriteria!==true && passnumCriteria!==true && passspecCriteria!==true){
     // create lowercase only criteria
+    var arrayCombo = lowCharacters
 }
 else if (passlowCriteria!==true && passupCriteria!==false && passnumCriteria!==true && passspecCriteria!==true){
     // create uppercase only
-    
+    var arrayCombo = upCharacters
 }
 else if (passlowCriteria!==true && passupCriteria!==true && passnumCriteria!==false && passspecCriteria!==true){
     // create number only
+    var arrayCombo = numCharacters
 }
 else if (passlowCriteria!==true && passupCriteria!==true && passnumCriteria!==true && passspecCriteria!==false){
     // create special only
+    var arrayCombo = specCharacters
 }
 else if (passlowCriteria!==false && passupCriteria!==false && passnumCriteria!==true && passspecCriteria!==true){
     // create lowercase and uppercase criteria
