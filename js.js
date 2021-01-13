@@ -41,30 +41,90 @@ while (passlowCriteria!==true && passupCriteria!==true && passnumCriteria!==true
 // create a confirm for selection validation
 var passConfirm = confirm("Please confirm your passcode criteria which you selected")
 
-// TODO create randomizer function
+if (passlowCriteria!==false && passupCriteria!==true && passnumCriteria!==true && passspecCriteria!==true){
+    // create lowercase only criteria
+}
+else if (passlowCriteria!==true && passupCriteria!==false && passnumCriteria!==true && passspecCriteria!==true){
+    // create uppercase only
+    
+}
+else if (passlowCriteria!==true && passupCriteria!==true && passnumCriteria!==false && passspecCriteria!==true){
+    // create number only
+}
+else if (passlowCriteria!==true && passupCriteria!==true && passnumCriteria!==true && passspecCriteria!==false){
+    // create special only
+}
+else if (passlowCriteria!==false && passupCriteria!==false && passnumCriteria!==true && passspecCriteria!==true){
+    // create lowercase and uppercase criteria
+    var arrayCombo = lowCharacters.concat(upCharacters)
+}
+else if (passlowCriteria!==false && passupCriteria!==true && passnumCriteria!==false && passspecCriteria!==true){
+    // create lowercase and number criteria
+    var arrayCombo = lowCharacters.concat(numCharacters)
+}
+else if (passlowCriteria!==false && passupCriteria!==true && passnumCriteria!==true && passspecCriteria!==false){
+    // create lowercase and special criteria
+    var arrayCombo = lowCharacters.concat(specCharacters)
+}
+else if (passlowCriteria!==true && passupCriteria!==false && passnumCriteria!==false && passspecCriteria!==true){
+    // create uppercase and num criteria
+    var arrayCombo = upCharacters.concat(numCharacters)
+}
+else if (passlowCriteria!==true && passupCriteria!==false && passnumCriteria!==true && passspecCriteria!==false){
+    // create uppercase and special criteria
+    var arrayCombo = upCharacters.concat(specCharacters)
+}
+else if (passlowCriteria!==true && passupCriteria!==true && passnumCriteria!==false && passspecCriteria!==false){
+    // create num and special criteria
+    var arrayCombo = numCharacters.concat(specCharacters)
+}
+else if (passlowCriteria!==false && passupCriteria!==false && passnumCriteria!==false && passspecCriteria!==true){
+    // create lowercase and uppercase and num criteria
+    var arrayCombo = lowCharacters.concat(upCharacters, numCharacters)
+}
+else if (passlowCriteria!==false && passupCriteria!==false && passnumCriteria!==true && passspecCriteria!==false){
+    // create lowercase and uppercase and special criteria
+    var arrayCombo = lowCharacters.concat(upCharacters, specCharacters)
+}
+else if (passlowCriteria!==false && passupCriteria!==true && passnumCriteria!==false && passspecCriteria!==false){
+    // create lowercase and num and special criteria
+    var arrayCombo = lowCharacters.concat(specCharacters, numCharacters)
+}
+else if (passlowCriteria!==true && passupCriteria!==false && passnumCriteria!==false && passspecCriteria!==false){
+    // create uppercase and num and special criteria
+    var arrayCombo = upCharacters.concat(numCharacters, specCharacters)
+}
+else if (passlowCriteria!==false && passupCriteria!==false && passnumCriteria!==false && passspecCriteria!==false){
+    // create lowercase and uppercase and num and special criteria
+    var arrayCombo = lowCharacters.concat(upCharacters, numCharacters, specCharacters)
+}
+
+console.log(arrayCombo)
 
 function randomize(){
-    var arrayPick = Math.ceil(Math.random()*4)
-    // console.log(arrayPick)
-    if (arrayPick===1){
-        var random = Math.floor(Math.random() * lowCharacters.length)
-        return randomString+=lowCharacters[random].toString()
-        
-    }
-    else if (arrayPick==2){
-        var random = Math.floor(Math.random() * upCharacters.length)
-        return randomString+=upCharacters[random].toString()
-        
-    }
-    else if (arrayPick==3){
-        var random = Math.floor(Math.random() * numCharacters.length)
-        return randomString+=numCharacters[random].toString()
-        
-    }
-    else {var random = Math.floor(Math.random() * specCharacters.length)
-       return randomString+=specCharacters[random].toString()
-    }
+    var random = Math.floor(Math.random() * arrayCombo.length)
+        return randomString+=arrayCombo[random].toString()
 }
+
+// backup code
+// function randomize(){
+//     var arrayPick = Math.ceil(Math.random()*4)
+//     if (arrayPick===1){
+//         var random = Math.floor(Math.random() * lowCharacters.length)
+//         return randomString+=lowCharacters[random].toString()
+//     }
+//     else if (arrayPick==2){
+//         var random = Math.floor(Math.random() * upCharacters.length)
+//         return randomString+=upCharacters[random].toString()
+//     }
+//     else if (arrayPick==3){
+//         var random = Math.floor(Math.random() * numCharacters.length)
+//         return randomString+=numCharacters[random].toString()
+//     }
+//     else {var random = Math.floor(Math.random() * specCharacters.length)
+//        return randomString+=specCharacters[random].toString()
+//     }
+// }
 
 randomizeE1.addEventListener ("click", function createPassword() {
         for(var i=0;i<passLength;i++){
