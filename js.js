@@ -13,36 +13,33 @@ var specCharacters = Array.from('!"#$%&()*+,-./:;<=>?@[]^_`{|}~')
 // create an array for numbers
 var numCharacters = Array.from('1234567890')
 
+// Event listener for the generate button to function on a mouse click as well as specifying the entire function for the randomizer
 randomizeE1.addEventListener ("click", function selectCriteria() {
 
-// create a prompt for password length (8-128)
+// Prompt for password length (8-128)
 var passLength = prompt("Please enter a passcode length (between 8-128)")
-// validate that the item entered is numerical
+// Validate that the item entered is numerical
 while(isNaN(passLength) || passLength < 8 || passLength > 128){
     var passLength = prompt("Please enter a passcode length (between 8-128)")
 }
 
-// create a prompt for password criteria general
-var passlowCriteria = confirm("Select confirm if you wish to include lowercase letters in your passcode")
-var passupCriteria = confirm("Select confirm if you wish to include uppercase letters in your passcode")
-var passnumCriteria = confirm("Select confirm if you wish to include numbers in your passcode")
-var passspecCriteria = confirm("Select confirm if you wish to include special characters in your passcode")
+// Prompts for password criteria general
+var passlowCriteria = confirm("Select ok if you wish to include lowercase letters in your passcode")
+var passupCriteria = confirm("Select ok if you wish to include uppercase letters in your passcode")
+var passnumCriteria = confirm("Select ok if you wish to include numbers in your passcode")
+var passspecCriteria = confirm("Select ok if you wish to include special characters in your passcode")
 
-    // create a validation that at least one item was selected
+// Validation that at least one item was selected
 while (passlowCriteria!==true && passupCriteria!==true && passnumCriteria!==true && passspecCriteria!==true){
     alert("You must select confirm for at least one criteria")
-    var passlowCriteria = confirm("Select confirm if you wish to include lowercase letters in your passcode")
-    var passupCriteria = confirm("Select confirm if you wish to include uppercase letters in your passcode")
-    var passnumCriteria = confirm("Select confirm if you wish to include numbers in your passcode")
-    var passspecCriteria = confirm("Select confirm if you wish to include special characters in your passcode")
+    var passlowCriteria = confirm("Select ok if you wish to include lowercase letters in your passcode")
+    var passupCriteria = confirm("Select ok if you wish to include uppercase letters in your passcode")
+    var passnumCriteria = confirm("Select ok if you wish to include numbers in your passcode")
+    var passspecCriteria = confirm("Select ok if you wish to include special characters in your passcode")
 }
-// // create a confirm for selection validation ***************IS THIS NEEDED**********
-// var passConfirm = confirm("Please confirm your passcode criteria which you selected")
 
-// if (passConfirm!==true){
-//     alert("Please select your criteria again")
-// }
-
+//All combinations of password criteria
+    
 if (passlowCriteria!==false && passupCriteria!==true && passnumCriteria!==true && passspecCriteria!==true){
     // create lowercase only criteria
     var arrayCombo = lowCharacters
@@ -103,48 +100,14 @@ else if (passlowCriteria!==false && passupCriteria!==false && passnumCriteria!==
     // create lowercase and uppercase and num and special criteria
     var arrayCombo = lowCharacters.concat(upCharacters, numCharacters, specCharacters)
 }
-console.log(arrayCombo)
 
+// For loop that adds a random character from the combo array that is added up until it reaches the passLength user input
 for(var i=0;i<passLength;i++){
     var random = Math.floor(Math.random() * arrayCombo.length)
     randomString+=arrayCombo[random].toString()
 }
-console.log(randomString)
+
+// Adds the generated password to the form on the webpage
 myform.row_password.value = randomString;
 }
 )
-
-
-// function randomize(){
-//     var random = Math.floor(Math.random() * arrayCombo.length)
-//         return randomString+=arrayCombo[random].toString()
-// }
-
-// randomizeE1.addEventListener ("click", function createPassword() {
-//         for(var i=0;i<passLength;i++){
-//             randomize()
-//         }
-//         console.log(randomString)
-//     }
-// )
-
-
-// backup code
-// function randomize(){
-//     var arrayPick = Math.ceil(Math.random()*4)
-//     if (arrayPick===1){
-//         var random = Math.floor(Math.random() * lowCharacters.length)
-//         return randomString+=lowCharacters[random].toString()
-//     }
-//     else if (arrayPick==2){
-//         var random = Math.floor(Math.random() * upCharacters.length)
-//         return randomString+=upCharacters[random].toString()
-//     }
-//     else if (arrayPick==3){
-//         var random = Math.floor(Math.random() * numCharacters.length)
-//         return randomString+=numCharacters[random].toString()
-//     }
-//     else {var random = Math.floor(Math.random() * specCharacters.length)
-//        return randomString+=specCharacters[random].toString()
-//     }
-// }
