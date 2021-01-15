@@ -20,6 +20,7 @@ randomizeE1.addEventListener ("click", function selectCriteria() {
 var passLength = prompt("Please enter a passcode length (between 8-128)")
 // Validate that the item entered is numerical
 while(isNaN(passLength) || passLength < 8 || passLength > 128){
+    alert("Your passcode length was outside legal bounds. Please input again.")
     var passLength = prompt("Please enter a passcode length (between 8-128)")
 }
 
@@ -38,7 +39,7 @@ while (passlowCriteria!==true && passupCriteria!==true && passnumCriteria!==true
     var passspecCriteria = confirm("Select ok if you wish to include special characters in your passcode")
 }
 
-//All combinations of password criteria
+//All combinations of password criteria. I realize now there are better ways to do this such as blocks of criteria now. Would redo if I had time.
     
 if (passlowCriteria!==false && passupCriteria!==true && passnumCriteria!==true && passspecCriteria!==true){
     // create lowercase only criteria
@@ -109,5 +110,7 @@ for(var i=0;i<passLength;i++){
 
 // Adds the generated password to the form on the webpage
 myform.row_password.value = randomString;
+// clear random string to allow for additional password generation
+randomString=""
 }
 )
