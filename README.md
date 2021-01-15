@@ -6,6 +6,10 @@ Description and usage: This application will take user input on 5 criteria (Leng
 
 **Visuals**: ![Expected output](./Assets/output.jpg "Expected output and user interaction") This image shows where you should click as a user (circled in red) to generate your passcode as well as showing the form with an example expected output.
 
+**Technologies used**: HTML, Javascript
+
+**Link to deployed application**: https://rikioh.github.io/passwordgenerator/
+
 **Expected behavior of javascript code**:
 
 GIVEN I need a new, secure password<br>
